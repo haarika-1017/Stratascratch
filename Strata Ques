@@ -1,0 +1,23 @@
+Population Density
+
+
+Interview Question Date: December 2023
+
+Deloitte
+Medium
+ID 10368
+
+You are working on a data analysis project at Deloitte where you need to analyze a dataset containing information
+about various cities. Your task is to calculate the population density of these cities, rounded to the nearest integer, and identify the cities with the minimum and maximum densities.
+The population density should be calculated as (Population / Area).
+
+
+The output should contain 'city', 'country', 'density'.
+
+Table: cities_population
+
+Solution
+select city, country, ROUND(population/area) AS pop_density, 
+RANK() OVER(ORDER BY population/area) as r_density
+from cities_population
+WHERE population/area IS NOT nULL
